@@ -1,6 +1,8 @@
 # Spring boot 101 
-## Spring boot profiles 
-### In sometimes we need to add some features in our applications , and this feature behave dynamically between dev and test and prod environment . let's say we need to call an external api to send emails but the endpoint of this api is different between different environments . In that case we can use spring boot profiles .
+## Dynamically Managing Features Across Environments with Spring Boot Profiles 
+### In some cases, we need to add features to our applications that behave differently across environments—like development, testing, and production. One common scenario is integrating with an external API, where the endpoint might be different between environments. 
+### A great way to handle this in Spring Boot is by leveraging profiles. Spring Boot profiles allow you to define environment-specific configurations that automatically adapt based on the environment your app is running in. This way, you can ensure your app connects to the right service, no matter the environment.
+###  How does it work?
 ### First we define properties for dev and prod
 - Dev
 ```properties
@@ -16,13 +18,13 @@ server.port=8000
 
 email.endpoint=http://127.0.0.1:8088/profiles
 ```
-### Then in application properties we define the current active profile 
+### And in application properties we define the current active profile 
 ```properties
 spring.application.name=justWebServer
 server.port=8000
 spring.profiles.active=dev
 ```
-### Then we define class to get this data 
+### And we define class to get this data 
 ```java
 package com.justWebServer.justWebServer.Config.Email;
 
